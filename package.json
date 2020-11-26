@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^3.1.5",
     "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.0.0",
+    "koa-views": "^6.3.1",
+    "mongoose": "^5.10.16",
+    "nodemailer": "^6.4.16",
+    "number-random": "^1.0.0",
     "require-directory": "^2.1.1"
   },
   "devDependencies": {

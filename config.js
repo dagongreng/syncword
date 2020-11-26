@@ -1,5 +1,5 @@
 module.exports = {
-    server: {
-      PORT: 3000
-    }
+  server: {
+    PORT: 3000
   }
+}

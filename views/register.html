@@ -1,0 +1,55 @@
+<html>
+  <body>
+    <h2>注册</h2>
+    <p class="title">邮箱</p>
+    <input type="text" id="email">
+    <p class="title">邮箱验证码</p>
+    <input type="text" id="email-code">
+    <button onclick="getEmailCode()">获取验证码</button>
+    <p class="title">密码</p>
+    <input type="text" id="password">
+    <button onclick="register()">注册</button>
+    <p>已有账号？去<a href="/login">登录</a></p>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      function getEmailCode() {
+        // console.log(`点击注册按钮`)
+        let email = document.getElementById('email')
+        axios.get('/email/code', {
+          params: {
+            email: email.value
+          }
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+      function register() {
+        // console.log(`点击注册按钮`)
+        let email = document.getElementById('email')
+        let emailcode = document.getElementById('email-code')
+        let password = document.getElementById('password')
+        // console.log(email.value)
+      
+        // post 请求
+        axios.post('/register', {
+            email: email.value,
+            emailcode: emailcode.value,
+            password: password.value,
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      }
+    </script>
+
+  </body>
+</html>

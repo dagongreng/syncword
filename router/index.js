@@ -7,7 +7,6 @@ const Router = require('koa-router')
 const visitor = (obj) => {
   // 待优化
   // 目前只支持一层
-  // console.log(obj)
   if (obj instanceof Router) {
     app.use(obj.routes())
   } 
