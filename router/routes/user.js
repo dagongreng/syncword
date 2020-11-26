@@ -21,19 +21,24 @@ router.get('/email/code', async ctx => {
     // 取到email
     
     const email = ctx.query.email
+    const emailcode = ctx.query.emailcode
+    const password = ctx.query.password
+    
     // 
     if (email) {
       const code = numRandom(100000, 999999)
-      uEmail.send(email, code)
+      uEmail.send(email, code ,password)
       ctx.body = `已发送`
       // 保存数据到数据库中
       let doc = new MailCode({
         code,
-        mail: email
+        mail: email,
+        password,
+
       })
       // doc.save()
       doc.save().then(res => {       //promise异步
-        console.log('保存验证码成功')
+        console.log('保存验证码成功'+code)
       }).catch(err => {
         console.log(err)
       })

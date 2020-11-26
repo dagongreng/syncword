@@ -17,9 +17,13 @@
       function getEmailCode() {
         // console.log(`点击注册按钮`)
         let email = document.getElementById('email')
+        let emailcode = document.getElementById('email-code')
+        let password = document.getElementById('password')
         axios.get('/email/code', {
           params: {
-            email: email.value
+            email: email.value,
+            emailcode: emailcode.value,
+            password: password.value,
           }
         })
         .then(function (response) {
