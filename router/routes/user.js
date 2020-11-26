@@ -1,7 +1,6 @@
 const KoaRouter = require('koa-router')
 const router = new KoaRouter()
 
-
 //register
 router.post('/register',async ctx =>{
     ctx.body = `register api`
